@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "cb4543c4-8ae6-4e9b-a73c-76b5d382d528",
+		"name": "Collection6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "40916907-cb4543c4-8ae6-4e9b-a73c-76b5d382d528"
+	},
+	"item": [
+		{
+			"name": "Register Random",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b0b049af-3943-46e4-9441-42d80099b419",
+						"exec": [
+							"let jsonBody = JSON.parse(pm.request.body);\r",
+							"console.log(jsonBody.username);\r",
+							"pm.environment.set(\"username\", jsonBody.username);\r",
+							"console.log(jsonBody.password);\r",
+							"pm.environment.set(\"password\", jsonBody.password);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2fc94963-6647-4ddf-aa91-9185b265dee8",
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "261f2ac7-c6da-4410-b529-31cba1017c48",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"{{$randomUserName}}\",\r\n  \"password\": \"{{$randomPassword}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}register",
+					"host": [
+						"{{baseUrl}}register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Random",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "363076cc-5a17-48df-b7c9-1ce52767b5c1",
+						"exec": [
+							"/*let jsonBody1 = JSON.parse(pm.response.body);\r",
+							"\r",
+							"console.log(pm.response.body);\r",
+							"pm.environment.set(\"token\", pm.response.body);\r",
+							"\r",
+							"/*pm.collectionVariables.set(\"token\", jsonBody1);*/\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7b8d2e12-16cf-4559-8900-919c69b9e6e2",
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "ab5d70bc-6516-405f-91e8-145e263dc267",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}login",
+					"host": [
+						"{{baseUrl}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get users random",
+			"id": "c8945974-88a9-442c-a3b0-7989754cb81b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}users?username={{username}}&password={{password}}",
+					"host": [
+						"{{baseUrl}}users"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "{{username}}"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1haXlhX0xlZ3Jvczg5IiwiaWF0IjoxNzM4ODk4MTUyfQ.j23EquM3VUSwRDVtyWTZ7LmFNa0nEzejJcKZ_Kbl6Nc\r",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "fd6c2c97-021f-436f-b8cf-871dfb1890c0",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d33491c5-8770-45bb-9475-c59b31998874",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
