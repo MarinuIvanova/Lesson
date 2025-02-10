@@ -155,6 +155,21 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "New http",
+			"id": "0c9159b6-efc0-4e10-9a1d-155ca1d9cf0d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
